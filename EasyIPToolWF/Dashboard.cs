@@ -282,7 +282,7 @@ namespace EasyIPToolWF
             // Get each adapter's names for Combobox
             foreach (NetworkInterface adapter in Classes.NetworkInfo.NetworkAdapters)
             {
-                if (!adapter.Name.Contains("Loopback") && !adapter.Description.Contains("Virtual") && !adapter.Description.Contains("Bluethooth"))// some sort of Pseudo-Interface
+                if (!adapter.Name.Contains("Loopback") && !adapter.Description.Contains("Virtual") && !adapter.Description.Contains("Bluetooth"))// some sort of Pseudo-Interface
                 {
                     aComboboxAdapter.Items.Add(adapter.Name);
                 }
@@ -291,6 +291,7 @@ namespace EasyIPToolWF
 
         private void AComboboxAdapter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            AButtonClear_Click(sender, e);
             #region Get Current Internet Protocl
             var adapterConfig = new ManagementClass("Win32_NetworkAdapterConfiguration");
             var networkCollection = adapterConfig.GetInstances();
