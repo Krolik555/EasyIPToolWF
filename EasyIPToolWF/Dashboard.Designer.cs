@@ -68,9 +68,9 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.aPictureBoxSettings = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.aGroupboxIPConfig.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.aPictureBoxSettings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // aButtonSet
@@ -462,17 +462,17 @@
             this.label14.TabIndex = 38;
             this.label14.Text = ".";
             // 
-            // aPictureBoxSettings
+            // pictureBox1
             // 
-            this.aPictureBoxSettings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.aPictureBoxSettings.Image = ((System.Drawing.Image)(resources.GetObject("aPictureBoxSettings.Image")));
-            this.aPictureBoxSettings.Location = new System.Drawing.Point(17, 56);
-            this.aPictureBoxSettings.Name = "aPictureBoxSettings";
-            this.aPictureBoxSettings.Size = new System.Drawing.Size(25, 26);
-            this.aPictureBoxSettings.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.aPictureBoxSettings.TabIndex = 41;
-            this.aPictureBoxSettings.TabStop = false;
-            this.aPictureBoxSettings.Click += new System.EventHandler(this.aPictureBoxSettings_Click);
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(17, 56);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 26);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 41;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
             // 
             // Dashboard
             // 
@@ -480,7 +480,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(210, 220);
-            this.Controls.Add(this.aPictureBoxSettings);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.aLabelDNS);
             this.Controls.Add(this.aTBDNS4);
             this.Controls.Add(this.aTBDNS3);
@@ -530,7 +530,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
             this.aGroupboxIPConfig.ResumeLayout(false);
             this.aGroupboxIPConfig.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.aPictureBoxSettings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -577,7 +577,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.PictureBox aPictureBoxSettings;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

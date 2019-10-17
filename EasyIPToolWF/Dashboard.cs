@@ -12,7 +12,6 @@ using System.Windows.Forms;
 using System.Management;
 using System.Net;
 using System.IO;
-using Squirrel;
 
 namespace EasyIPToolWF
 {
@@ -21,10 +20,8 @@ namespace EasyIPToolWF
         public Dashboard()
         {
             InitializeComponent();
-            // Get saved settings
             Classes.Settings.GetSettings();
-
-            // Set saved settings
+            // Set Location
             try
             {
                 this.TopMost = Classes.Settings.AlwaysOnTop;
@@ -40,16 +37,6 @@ namespace EasyIPToolWF
             {
 
             }
-
-            AddVersionToTitle();
-        }
-
-        private void AddVersionToTitle()
-        {
-            System.Reflection.Assembly assembly = System.Reflection.Assembly.GetExecutingAssembly();
-            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
-
-            this.Text += $" v.{versionInfo.FileVersion}";
         }
 
         private void ARadioBtnDHCP_CheckedChanged(object sender, EventArgs e)
@@ -422,26 +409,15 @@ namespace EasyIPToolWF
 
         }
 
-        private void aPictureBoxSettings_Click(object sender, EventArgs e)
+        private void PictureBox1_Click(object sender, EventArgs e)
         {
             Classes.Settings.GetSettings();
             SettingsForm ConfigureSettings = new SettingsForm();
             DialogResult dResult = ConfigureSettings.ShowDialog();
-            // Save Settings
             if (dResult == DialogResult.OK)
             {
-                // Save Settings
                 this.TopMost = Classes.Settings.AlwaysOnTop;
                 this.ShowInTaskbar = Classes.Settings.ShowInTaskbar;
-            }
-            // Check for Updates
-            if (dResult == DialogResult.Yes)
-            {
-                // Save settings
-                this.TopMost = Classes.Settings.AlwaysOnTop;
-                this.ShowInTaskbar = Classes.Settings.ShowInTaskbar;
-                // Update
-                Classes.Updates.CheckForUpdates();
             }
         }
 
