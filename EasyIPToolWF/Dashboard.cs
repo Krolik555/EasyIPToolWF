@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using System.Management;
 using System.Net;
 using System.IO;
+using EasyIPToolWF.Classes;
+using System.Reflection;
 
 namespace EasyIPToolWF
 {
@@ -37,6 +39,14 @@ namespace EasyIPToolWF
             {
 
             }
+            this.AddVersionToTitle();
+        }
+
+        private void AddVersionToTitle()
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo versionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+            this.Text = this.Text + " v." + versionInfo.FileVersion;
         }
 
         private void ARadioBtnDHCP_CheckedChanged(object sender, EventArgs e)
@@ -409,15 +419,21 @@ namespace EasyIPToolWF
 
         }
 
-        private void PictureBox1_Click(object sender, EventArgs e)
+        private void aPictureBoxSettings_Click(object sender, EventArgs e)
         {
-            Classes.Settings.GetSettings();
+            Settings.GetSettings();
             SettingsForm ConfigureSettings = new SettingsForm();
             DialogResult dResult = ConfigureSettings.ShowDialog();
             if (dResult == DialogResult.OK)
             {
-                this.TopMost = Classes.Settings.AlwaysOnTop;
-                this.ShowInTaskbar = Classes.Settings.ShowInTaskbar;
+                base.TopMost = Settings.AlwaysOnTop;
+                base.ShowInTaskbar = Settings.ShowInTaskbar;
+            }
+            if (dResult == DialogResult.Yes)
+            {
+                base.TopMost = Settings.AlwaysOnTop;
+                base.ShowInTaskbar = Settings.ShowInTaskbar;
+                Updates.CheckForUpdates();
             }
         }
 

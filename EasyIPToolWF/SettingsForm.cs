@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,6 +27,37 @@ namespace EasyIPToolWF
             Classes.Settings.SaveSettings();
             DialogResult = DialogResult.OK;
             //this.Close();
+        }
+
+        private void AButtonCheckForUpdates_Click(object sender, EventArgs e)
+        {
+            bool HasInternet;
+            try
+            {
+                using (WebClient client = new WebClient())
+                {
+                    using (client.OpenRead("http://google.com/generate_204"))
+                    {
+                        HasInternet = true;
+                    }
+                }
+            }
+            catch
+            {
+                HasInternet = false;
+            }
+            bool flag = HasInternet;
+            if (flag)
+            {
+                Classes.Settings.AlwaysOnTop = this.aCheckBoxAlwaysOnTop.Checked;
+                Classes.Settings.ShowInTaskbar = this.aCheckBoxShowInTaskbar.Checked;
+                Classes.Settings.SaveSettings();
+                base.DialogResult = DialogResult.Yes;
+            }
+            else
+            {
+                MessageBox.Show("No Internet Connection!", "Error!");
+            }
         }
     }
 }

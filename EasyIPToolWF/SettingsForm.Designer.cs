@@ -31,6 +31,7 @@
             this.aCheckBoxAlwaysOnTop = new System.Windows.Forms.CheckBox();
             this.aCheckBoxShowInTaskbar = new System.Windows.Forms.CheckBox();
             this.aButtonSave = new System.Windows.Forms.Button();
+            this.aButtonCheckForUpdates = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // aCheckBoxAlwaysOnTop
@@ -63,11 +64,22 @@
             this.aButtonSave.UseVisualStyleBackColor = true;
             this.aButtonSave.Click += new System.EventHandler(this.AButtonSave_Click);
             // 
+            // aButtonCheckForUpdates
+            // 
+            this.aButtonCheckForUpdates.Location = new System.Drawing.Point(67, 57);
+            this.aButtonCheckForUpdates.Name = "aButtonCheckForUpdates";
+            this.aButtonCheckForUpdates.Size = new System.Drawing.Size(112, 23);
+            this.aButtonCheckForUpdates.TabIndex = 3;
+            this.aButtonCheckForUpdates.Text = "Check for Updates";
+            this.aButtonCheckForUpdates.UseVisualStyleBackColor = true;
+            this.aButtonCheckForUpdates.Click += new System.EventHandler(this.AButtonCheckForUpdates_Click);
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(191, 92);
+            this.Controls.Add(this.aButtonCheckForUpdates);
             this.Controls.Add(this.aButtonSave);
             this.Controls.Add(this.aCheckBoxShowInTaskbar);
             this.Controls.Add(this.aCheckBoxAlwaysOnTop);
@@ -90,5 +102,6 @@
         private System.Windows.Forms.CheckBox aCheckBoxAlwaysOnTop;
         private System.Windows.Forms.CheckBox aCheckBoxShowInTaskbar;
         private System.Windows.Forms.Button aButtonSave;
+        private System.Windows.Forms.Button aButtonCheckForUpdates;
     }
 }
